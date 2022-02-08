@@ -25,7 +25,7 @@ public class Passenger {
                 title.equalsIgnoreCase("Ms")) {
             this.title = title;
         } else {
-            System.out.println("Invalid Title - Mr, Mrs, Ms Accepted");
+            System.out.println("Invalid Title - Mr, Mrs, Ms Accepted --> Entered: " + title);
         }
     }
 
@@ -37,7 +37,7 @@ public class Passenger {
         if(name.length() >= 3){
             this.name = name;
         } else{
-            System.out.println("Invalid Name Length - too short");
+            System.out.println("Invalid Name Length - too short --> Entered: " + name);
         }
     }
 
@@ -49,7 +49,7 @@ public class Passenger {
         if(id.length() >= 10){
             this.id = id;
         } else{
-            System.out.println("Invalid ID Length - too short");
+            System.out.println("Invalid ID Length - too short --> Entered: " + id);
         }
     }
 
@@ -61,7 +61,7 @@ public class Passenger {
         if(phone.length() >= 7){
             this.phone = phone;
         }else{
-            System.out.println("Invalid Phone Length - too short");
+            System.out.println("Invalid Phone Length - too short --> Entered: " + phone);
         }
     }
 
@@ -73,7 +73,7 @@ public class Passenger {
         if(age >= 16){
             this.age = age;
         } else{
-            System.out.println("Invalid Age - Passenger is too young");
+            System.out.println("Invalid Age - Passenger is too young --> Entered: " + age);
         }
     }
 
