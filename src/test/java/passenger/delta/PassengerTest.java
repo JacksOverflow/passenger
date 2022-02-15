@@ -1,9 +1,13 @@
 package passenger.delta;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class PassengerTest {
-    Passenger testPax = new Passenger();
+    Passenger testPax;
+
+    @BeforeEach
+    void init() { testPax = new Passenger(); }
 
     @Test
     void PassengerNamePassesLengthLimitAndIsNotNull() {
