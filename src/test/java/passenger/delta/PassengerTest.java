@@ -69,7 +69,4 @@ public class PassengerTest {
         testPax.setAge(16);
         Assertions.assertFalse(testPax.getAge() > 16);
     }
-
-
-
 }
