@@ -17,8 +17,9 @@ public class PassengerTest {
     }
     @Test
     void PassengerNameFailsLengthLimit(){
-        testPax.setName("Ae");
-        Assertions.assertNull(testPax.getName());
+        String name = "Ae";
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, ()-> testPax.setName(name));
+        Assertions.assertEquals("Invalid Name Length - too short --> Entered: " + name, exception.getMessage());
     }
 
     @Test
@@ -28,8 +29,10 @@ public class PassengerTest {
     }
     @Test
     void PassengerTitleDoesNotMatchAcceptedTitles(){
-        testPax.setTitle("Dr");
-        Assertions.assertNull(testPax.getTitle());
+        String title = "Dr";
+
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, ()-> testPax.setTitle(title));
+        Assertions.assertEquals("Invalid Title - Mr, Mrs, Ms Accepted --> Entered: " + title, exception.getMessage());
     }
 
     @Test
@@ -41,8 +44,10 @@ public class PassengerTest {
 
     @Test
     void PassengerIdIsNotValid(){
-        testPax.setId("123");
-        Assertions.assertNull(testPax.getId());
+        String id = "123";
+
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, ()-> testPax.setId(id));
+        Assertions.assertEquals("Invalid ID Length - too short --> Entered: " + id, exception.getMessage());
     }
 
     @Test
@@ -54,8 +59,10 @@ public class PassengerTest {
 
     @Test
     void PassengerPhoneIsNotValid(){
-        testPax.setPhone("348874");
-        Assertions.assertNull(testPax.getPhone());
+        String phone = "348874";
+        Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, ()-> testPax.setPhone(phone));
+        Assertions.assertEquals("Invalid Phone Length - too short --> Entered: " + phone, exception.getMessage());
+
     }
 
     @Test
@@ -66,7 +73,8 @@ public class PassengerTest {
 
     @Test
     void PassengerAgeIsNotValid(){
-        testPax.setAge(16);
-        Assertions.assertFalse(testPax.getAge() > 16);
+            int age = 16;
+            Throwable exception = Assertions.assertThrows(IllegalArgumentException.class, ()-> testPax.setAge(age));
+            Assertions.assertEquals("Invalid Age - Passenger is too young --> Entered: " + age, exception.getMessage());
     }
 }
