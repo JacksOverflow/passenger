@@ -8,7 +8,7 @@ public class Passenger {
         ID (min 10 chars)
         Phone (min 7 chars)
         Age ( > 16 -- or no fly)
-         */
+     */
     private String title;
     private String name;
     private String id;
@@ -20,7 +20,13 @@ public class Passenger {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if (    title.equalsIgnoreCase("Mr") ||
+                title.equalsIgnoreCase("Mrs") ||
+                title.equalsIgnoreCase("Ms")) {
+            this.title = title;
+        } else {
+            System.out.println("Invalid Title - Mr, Mrs, Ms Accepted --> Entered: " + title);
+        }
     }
 
     public String getName() {
@@ -28,7 +34,11 @@ public class Passenger {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name.length() >= 3){
+            this.name = name;
+        } else{
+            System.out.println("Invalid Name Length - too short --> Entered: " + name);
+        }
     }
 
     public String getId() {
@@ -36,7 +46,11 @@ public class Passenger {
     }
 
     public void setId(String id) {
-        this.id = id;
+        if(id.length() >= 10){
+            this.id = id;
+        } else{
+            System.out.println("Invalid ID Length - too short --> Entered: " + id);
+        }
     }
 
     public String getPhone() {
@@ -44,7 +58,11 @@ public class Passenger {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        if(phone.length() >= 7){
+            this.phone = phone;
+        }else{
+            System.out.println("Invalid Phone Length - too short --> Entered: " + phone);
+        }
     }
 
     public int getAge() {
@@ -52,9 +70,11 @@ public class Passenger {
     }
 
     public void setAge(int age) {
-        this.age = age;
+        if(age >= 16){
+            this.age = age;
+        } else{
+            System.out.println("Invalid Age - Passenger is too young --> Entered: " + age);
+        }
     }
-
-
 
 }
